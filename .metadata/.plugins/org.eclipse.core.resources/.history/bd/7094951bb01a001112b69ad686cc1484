@@ -1,0 +1,27 @@
+package com.kodewish.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/sbi")
+public class MainController {
+	
+	int balance=1000;
+	
+	@GetMapping("/fetchBalance")
+	public int getBalance() {
+		System.out.println("fetch balance api hit");
+		return balance;
+	}
+	
+	@GetMapping("/updatedata")
+	public int updateStatement(@RequestParam String accountNo,@RequestParam int bal) {
+		   System.out.println("cash deposit for acc No-"+accountNo+"rs:-"+bal);
+		   balance+=bal;
+		   return balance;
+	}
+
+}
