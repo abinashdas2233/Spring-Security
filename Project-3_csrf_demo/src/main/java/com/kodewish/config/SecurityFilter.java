@@ -12,7 +12,7 @@ public class SecurityFilter {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
-            .csrf(csrf -> csrf.disable())   // disable csrf for POST request
+            .csrf(csrf -> csrf.disable())   // disable csrf for POST request,used for stateless request done by postman.
             .authorizeHttpRequests(auth -> auth
                     .requestMatchers("/hdfc/fetch", "/hdfc/userdata").permitAll()
                     .anyRequest().authenticated()
